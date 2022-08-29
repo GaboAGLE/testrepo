@@ -4,16 +4,15 @@ resource "google_service_account" "default" {
 }
 
 resource "google_compute_instance" "default" {
-  vm_name      = var.vm_name
-  machine_type = var.machine_type
-  zone         = var.zone
-  project_id   = var.project_id
+  name         = "test"
+  machine_type = "e2-medium"
+  zone         = "us-central1-a"
 
   tags = ["foo", "bar"]
 
   boot_disk {
     initialize_params {
-      image = var.image
+      image = "debian-cloud/debian-11"
     }
   }
 
@@ -25,13 +24,18 @@ resource "google_compute_instance" "default" {
   network_interface {
     network = "default"
 
+    access_config {
+      // Ephemeral public IP
+    }
   }
 
   metadata = {
     foo = "bar"
   }
 
-   service_account {
+  metadata_startup_script = "echo hi > /test.txt"
+
+  service_account {
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
     email  = google_service_account.default.email
     scopes = ["cloud-platform"]
