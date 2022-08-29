@@ -15,7 +15,7 @@ steps:
   - '-c'
   - |
       if [ -d "Modules/vm/" ]; then
-        cd Modules/VM/
+        cd Modules/vm/
         terraform init
       else
         for dir in Modules/*/
