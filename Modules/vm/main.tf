@@ -21,13 +21,7 @@ resource "google_compute_instance" "test" {
     interface = "SCSI"
   }
 
-  network_interface {
-    network = "default"
 
-    access_config {
-      // Ephemeral public IP
-    }
-  }
 
   metadata = {
     foo = "bar"
