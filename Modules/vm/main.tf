@@ -1,4 +1,7 @@
+provider "google" {
+  project     = "bc-terraform-poc"
 
+}
 
 resource "google_compute_instance" "test" {
   name         = "test"
