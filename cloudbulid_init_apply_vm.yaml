@@ -14,7 +14,7 @@ steps:
   args: 
   - '-c'
   - |
-      if [ -d "Modules/VM/" ]; then
+      if [ -d "Modules/vm/" ]; then
         cd Modules/VM/
         terraform init
       else
@@ -38,8 +38,8 @@ steps:
   args: 
   - '-c'
   - | 
-      if [ -d "Modules/VM/" ]; then
-        cd Modules/VM/
+      if [ -d "Modules/vm/" ]; then
+        cd Modules/vm/
         terraform plan
       else
         for dir in Modules/*/
@@ -64,8 +64,8 @@ steps:
   args: 
   - '-c'
   - | 
-      if [ -d "Modules/VM/" ]; then
-        cd Modules/VM/      
+      if [ -d "Modules/vm/" ]; then
+        cd Modules/vm/      
         terraform apply -auto-approve
       else
         echo "***************************** SKIPPING APPLYING *******************************"
