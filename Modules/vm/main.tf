@@ -20,7 +20,14 @@ resource "google_compute_instance" "test" {
   scratch_disk {
     interface = "SCSI"
   }
+  
+  network_interface {
+    network = "test-vpc"
 
+    access_config {
+      // Ephemeral public IP
+    }
+  }
 
 
   metadata = {
