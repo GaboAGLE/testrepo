@@ -7,15 +7,19 @@
    default = "e2-medium"
  }
  
-variable "image" {
-
- default = "debian-cloud/debian-9"
+variable "image" { 
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
 }
 variable "project_id" {
- default = "fresh-capsule-324021"
+ default = "bc-terraform-poc"
 }
 variable "zone" {
  type = string
  default = "us-central1"
 }
-
+variable "location"{
+type= string 
+ default=
+}
