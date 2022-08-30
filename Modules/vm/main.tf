@@ -24,9 +24,6 @@ resource "google_compute_instance" "test" {
   network_interface {
     network = "test-vpc"
     subnetwork="vm-subnet"
-    access_config {
-      // Ephemeral public IP
-    }
   }
 
 
