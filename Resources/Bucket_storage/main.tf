@@ -11,7 +11,7 @@ terraform {
 module "bucket" {
   source = "../../Modules/storage"
 
-  name       = "bc-terraform-POC-bucket"
+  name       = "bc-terraform-poc-bucket"
   project_id = var.project_id
   location   = "us-east1"
 
